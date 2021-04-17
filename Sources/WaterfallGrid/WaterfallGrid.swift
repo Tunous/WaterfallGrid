@@ -29,16 +29,16 @@ public struct WaterfallGrid<Data, ID, Content>: View where Data : RandomAccessCo
             GeometryReader { geometry in
                 self.grid(in: geometry)
                     .onPreferenceChange(ElementPreferenceKey.self, perform: { preferences in
-                        DispatchQueue.global(qos: .userInteractive).async {
+//                        DispatchQueue.global(qos: .userInteractive).async {
                             let (alignmentGuides, gridHeight) = self.alignmentsAndGridHeight(columns: self.style.columns,
                                                                                              spacing: self.style.spacing,
                                                                                              scrollDirection: self.scrollOptions.direction,
                                                                                              preferences: preferences)
-                            DispatchQueue.main.async {
+//                            DispatchQueue.main.async {
                                 self.alignmentGuides = alignmentGuides
                                 self.gridHeight = gridHeight
-                            }
-                        }
+//                            }
+//                        }
                     })
             }
         }
